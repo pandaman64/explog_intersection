@@ -100,24 +100,26 @@ auto adjacent_ratio(Seq)(Seq seq){
 	return adjacent_range!((a,b) => a/b)(seq);
 }
 
+Number rate_of_convergence(Number base,Number precision = 8){
+	import std.algorithm : zip,take,until;
+	import std.math : abs,pow;
+	
+	auto seq = TetrationSequence(base);
+	
+	auto rate = zip(
+		seq.error_seq,
+		seq.error_seq.adjacent_ratio,
+		seq.error_seq.adjacent_difference
+	).take(150).until!(a => abs(a[2]) <= pow(10.0,-precision));
+	
+	return rate.front[1];
+}
+
 void main(){
 	import std.stdio;
 	import std.algorithm;
 	import std.range;
 	import std.math;
 
-	auto seq = TetrationSequence(0.02);
-	
-	foreach(v;zip(
-		seq.error_seq,
-		seq.error_seq.adjacent_ratio,
-		seq.error_seq.adjacent_difference
-	).take(150).until!(a => abs(a[2]) <= pow(10.0,-8))){
-		writefln("%.20f",v[0]);
-		writefln("%.20f",v[1]);
-		writefln("%.20f",v[2]);
-		writeln();
-		//writefln("%.20f\n%.20f\n",v[0],v[1]);
-		//writefln("%.5f%%",v[1]/v[0]*100);
-	}
+	writeln(0.02,",",rate_of_convergence(0.02));
 }
