@@ -1,3 +1,5 @@
+import seq_util;
+
 alias Number = real;
 
 Number next_tetration(Number base,Number value){
@@ -63,7 +65,7 @@ public:
 auto error_seq(Range)(Range r,size_t num = 100){
 	return ErrorSequence!Range(r,num);
 }
-
+/+
 struct AdjacentRange(alias Func,Range){
 private:
 	Range range;
@@ -99,6 +101,7 @@ auto adjacent_difference(Seq)(Seq seq){
 auto adjacent_ratio(Seq)(Seq seq){
 	return adjacent_range!((a,b) => a/b)(seq);
 }
++/
 
 Number rate_of_convergence(Number base,Number precision = 8){
 	import std.algorithm : zip,find;
@@ -117,7 +120,10 @@ Number rate_of_convergence(Number base,Number precision = 8){
 
 void main(){
 	import std.stdio;
-
-	writeln(0.02,",",rate_of_convergence(0.02));
-	writeln(0.04,",",rate_of_convergence(0.04));
+	import std.range;
+	import std.math;
+	
+	foreach(base;iota(pow(10.0,-3),1/exp(exp(1.0)),pow(10.0,-3))){
+		writeln(base,',',rate_of_convergence(base));
+	}
 }
