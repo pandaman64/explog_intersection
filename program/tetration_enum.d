@@ -101,7 +101,7 @@ auto adjacent_ratio(Seq)(Seq seq){
 }
 
 Number rate_of_convergence(Number base,Number precision = 8){
-	import std.algorithm : zip,take,until;
+	import std.algorithm : zip,find;
 	import std.math : abs,pow;
 	
 	auto seq = TetrationSequence(base);
@@ -110,16 +110,14 @@ Number rate_of_convergence(Number base,Number precision = 8){
 		seq.error_seq,
 		seq.error_seq.adjacent_ratio,
 		seq.error_seq.adjacent_difference
-	).take(150).until!(a => abs(a[2]) <= pow(10.0,-precision));
+	).find!(a => abs(a[2]) <= pow(10.0,-precision));
 	
 	return rate.front[1];
 }
 
 void main(){
 	import std.stdio;
-	import std.algorithm;
-	import std.range;
-	import std.math;
 
 	writeln(0.02,",",rate_of_convergence(0.02));
+	writeln(0.04,",",rate_of_convergence(0.04));
 }
