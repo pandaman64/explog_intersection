@@ -123,7 +123,7 @@ void main(){
 	import std.range;
 	import std.math;
 	
-	foreach(base;iota(pow(10.0,-3),1/exp(exp(1.0)),pow(10.0,-3))){
-		writeln(base,',',rate_of_convergence(base));
-	}
+	auto seq = TetrationSequence(0.03);
+	seq.limit_value!(absolute_error!8).writeln;
+	seq.limit_value!(effective_digit!5).writeln;
 }
