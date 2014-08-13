@@ -65,43 +65,6 @@ public:
 auto error_seq(Range)(Range r,size_t num = 100){
 	return ErrorSequence!Range(r,num);
 }
-/+
-struct AdjacentRange(alias Func,Range){
-private:
-	Range range;
-public:
-	this(Range r){
-		range = r;
-	}
-	
-	bool empty() @safe{
-		return range.empty;
-	}
-	
-	void popFront(){
-		range.popFront;
-	}
-	
-	auto front(){
-		auto forward = range;
-		forward.popFront();
-		return Func(forward.front,range.front);
-	}
-	
-	auto save(){
-		return this;
-	}
-}
-auto adjacent_range(alias Func,Seq)(Seq seq){
-	return AdjacentRange!(Func,Seq)(seq);
-}
-auto adjacent_difference(Seq)(Seq seq){
-	return adjacent_range!((a,b) => a-b)(seq);
-}
-auto adjacent_ratio(Seq)(Seq seq){
-	return adjacent_range!((a,b) => a/b)(seq);
-}
-+/
 
 Number rate_of_convergence(Number base,Number precision = 8){
 	import std.algorithm : zip,find;
