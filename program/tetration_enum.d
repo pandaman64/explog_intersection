@@ -66,19 +66,14 @@ auto error_seq(Range)(Range r,size_t num = 100){
 	return ErrorSequence!Range(r,num);
 }
 
-Number rate_of_convergence(Number base,Number precision = 8){
-	import std.algorithm : zip,find;
-	import std.math : abs,pow;
-	
-	auto seq = TetrationSequence(base);
-	
-	auto rate = zip(
-		seq.error_seq,
-		seq.error_seq.adjacent_ratio,
-		seq.error_seq.adjacent_difference
-	).find!(a => abs(a[2]) <= pow(10.0,-precision));
-	
-	return rate.front[1];
+template rate_of_convergence(int precision = 8){
+	Number rate_of_convergence(Number base){
+		import std.algorithm : zip,find;
+		import std.math : abs,pow;
+
+		auto seq = TetrationSequence(base);
+		return seq.error_seq.adjacent_ratio.limit_value!(effective_digit!precision);;
+	}
 }
 
 void main(){
@@ -89,4 +84,6 @@ void main(){
 	auto seq = TetrationSequence(0.03);
 	seq.limit_value!(absolute_error!8).writeln;
 	seq.limit_value!(effective_digit!5).writeln;
+
+	rate_of_convergence(0.03).writeln;
 }
