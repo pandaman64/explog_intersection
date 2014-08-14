@@ -80,10 +80,8 @@ void main(){
 	import std.stdio;
 	import std.range;
 	import std.math;
-	
-	auto seq = TetrationSequence(0.03);
-	seq.limit_value!(absolute_error!8).writeln;
-	seq.limit_value!(effective_digit!5).writeln;
 
-	rate_of_convergence(0.03).writeln;
+	foreach(base;iota(0.001,pow(1.0/exp(1.0),exp(1.0)),0.001)){
+		writeln(base,',',rate_of_convergence!4(base));
+	}
 }
