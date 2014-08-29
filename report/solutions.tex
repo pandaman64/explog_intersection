@@ -31,3 +31,27 @@
 		これらより、\thref{th:fixed_solutions}が証明された。
 	\end{proof}
 
+\subsection{共役解}
+	ところが、不動点以外でも指数関数と対数関数のグラフが交点を持つことがある。この解を共役解と定義し、小さい方から共役小解、共役大解とする。
+	共役解が存在することは以下のように証明できる。
+	\begin{theorem}
+	\label{th:conjugate_solutions}
+		$0 < a < \frac{1}{e^e}$のとき、共役解が存在する
+	\end{theorem}
+	\begin{proof} \mbox{}\\
+		このとき、\thref{th:fixed_solutions}より、不動点解$\xf$が区間$(0,1)$に存在する。
+		$f(x) = a^x - \log_a x$とすると、
+		\begin{align*}
+			f(1) = a^x > 0 \\
+			f(\xf) = 0
+		\end{align*}
+		だから、$f'(\xf) < 0$ならば、区間$(\xf,1)$に$f(x) = 0$を満たす$x$が存在するといえる。
+		\begin{align*}
+			f'(\xf) = a^{\xf}\ln a - \frac{1}{\xf\ln a} &< 0 \\
+									 a^{\xf}\xf\ln^2 a  &> 1 \quad (\ln a < 0\text{より}) \\
+											  \ln^2 \xf &> 1 \quad (0 < a^{\xf} = \xf < 1\text{から}) \\
+												0 < \xf &< \frac{1}{e} \\
+												  0 < a &< \frac{1}{e^e}
+		\end{align*}
+		したがって、\thref{th:conjugate_solutions}が証明された。
+	\end{proof}
