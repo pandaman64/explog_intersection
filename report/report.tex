@@ -1,0 +1,32 @@
+\documentclass[uplatex]{jsarticle}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+% from http://www.math.tohoku.ac.jp/~kuroki/LaTeX/howtolatex.html
+\usepackage{amsthm}
+
+\newtheorem{theorem}{定理}
+\newtheorem{prop}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{cor}[theorem]{系}
+\newtheorem{example}[theorem]{例}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{rem}[theorem]{注意}
+\newtheorem{guide}[theorem]{参考}
+
+\numberwithin{theorem}{section}  % 定理番号を「定理2.3」のように印刷
+\numberwithin{equation}{section} % 式番号を「(3.5)」のように印刷
+
+\usepackage{proof}
+
+\def\loga{\log_{a} }
+\newcommand{\thref}[1]{定理(\ref{#1})}
+% from http://calcurio.com/wordpress/?p=1632
+\newcommand{\xf}{x_{\scalebox{0.5}{f}}}
+
+\begin{document}
+
+\include{solutions}
+
+\end{document}
