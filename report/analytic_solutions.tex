@@ -47,15 +47,15 @@
 	\end{equation*}
 	とする。テトレーションの定義から、$^{h+1} a = a^{^h a}$なので、
 	\begin{align*}
-		a ^{^\infty a} &= ^\infty a \quad \text{であって、$x = ^\infty a$とおけば} \\
+		a ^{^\infty a} &= {^\infty a} \quad \text{であって、$x = {^\infty a}$とおけば} \\
 		a^x &= x
 	\end{align*}
-	である。ここから、$a$についての関数$x = ^\infty a$は、不動点解についての$f(a,x) = 0$の陰関数表示であることが分かる。テトレーションの導入によって、指数関数と対数関数の交点を底であらわすことができるようになった。
+	である。ここから、$a$についての関数$x = {^\infty a}$は、不動点解についての$f(a,x) = 0$の陰関数表示であることが分かる。テトレーションの導入によって、指数関数と対数関数の交点を底であらわすことができるようになった。
 	
 \subsection{$^\infty a$の収束}
 	それでは、高さ無限大のテトレーション$^\infty a$がどのような$a$について収束するかを調べよう。
 	
-	ここで、$x = ^\infty a$は$a = x^\frac{1}{x}$の逆関数であり、$a = x^frac{1}{x}$の値域が$0 < a \leq e^\frac{1}{e}$であることから、この範囲で$^\infty a$は収束すると想定される。
+	ここで、$x = {^\infty a}$は$a = x^\frac{1}{x}$の逆関数であり、$a = x^\frac{1}{x}$の値域が$0 < a \leq e^\frac{1}{e}$であることから、この範囲で$^\infty a$は収束すると想定される。
 	この想定は、\thref{th:fixed_solutions}で示された結果とも良く対応しているように見える。
 	
 	しかし、実際には\thref{th:conjugate_solutions}で示されたように、共役解の影響が出てしまうので、この範囲全体では$^\infty a$は収束しないのだ。収束範囲について以下に示す。
@@ -68,7 +68,7 @@
 		\begin{enumerate}
 			\item $1 \leq a \leq e^\frac{1}{e}$のとき
 			
-				$a \geq 1$より、$^{n+1} a = a ^{^n a} \geq ^n a$であるから、数列$\{^n a\}$は、単調増加する。
+				$a \geq 1$より、$^{n+1} a = a ^{^n a} \geq {^n a}$であるから、数列$\{^n a\}$は、単調増加する。
 				また、$1 \leq z \leq e$である$z$をおくと、
 				\begin{align*}
 					1 \leq a^z &\leq (e^\frac{1}{e})^e \\
@@ -76,7 +76,7 @@
 				\end{align*}
 				であるから、$1 \leq a \leq e^\frac{1}{e} < e$から、帰納的に、
 				\begin{equation*}
-					1 \leq ^n a \leq e
+					1 \leq {^n a} \leq e
 				\end{equation*}
 				であるといえる。これらより、数列$\{^n a\}$は単調増加し、上に有界な数列となるので、単調収束定理から、数列$\{^n a\}$が収束する。よって、
 				\begin{equation*}
