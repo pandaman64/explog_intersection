@@ -63,29 +63,87 @@
 	\label{th:tetration_convergence}
 		$^\infty a$は$\frac{1}{e^e} < a \leq e^\frac{1}{e}$のとき、存在する
 	\end{theorem}
-	\begin{proof} \mbox{}\\
-		底の値によって場合分けをして考える。
-		\begin{enumerate}
-			\item $1 \leq a \leq e^\frac{1}{e}$のとき
-			
-				$a \geq 1$より、$^{n+1} a = a ^{^n a} \geq {^n a}$であるから、数列$\{^n a\}$は、単調増加する。
-				また、$1 \leq z \leq e$である$z$をおくと、
-				\begin{align*}
-					1 \leq a^z &\leq (e^\frac{1}{e})^e \\
-							 &= e
-				\end{align*}
-				であるから、$1 \leq a \leq e^\frac{1}{e} < e$から、帰納的に、
-				\begin{equation*}
-					1 \leq {^n a} \leq e
-				\end{equation*}
-				であるといえる。これらより、数列$\{^n a\}$は単調増加し、上に有界な数列となるので、単調収束定理から、数列$\{^n a\}$が収束する。よって、
-				\begin{equation*}
-					^\infty a = \lim_{n \to \infty} {^n a}
-				\end{equation*}
-				が存在する。
-			
-			\item $0 < a < 1$のとき
-		\end{enumerate}
+	
+	\begin{lemma}
+		$1 \leq a \leq e^\frac{1}{e}$のとき、$\lim_{n \to \infty} {^n a}$は収束する。
+	\end{lemma}
+	\begin{proof}
+	
+		$a \geq 1$より、$^{n+1} a = a ^{^n a} \geq {^n a}$であるから、数列$\{^n a\}$は、単調増加する。
+		また、$1 \leq z \leq e$である$z$をおくと、
+		\begin{align*}
+			1 \leq a^z &\leq (e^\frac{1}{e})^e \\
+					 &= e
+		\end{align*}
+		であるから、$1 \leq a \leq e^\frac{1}{e} < e$から、帰納的に、
+		\begin{equation*}
+			1 \leq {^n a} \leq e
+		\end{equation*}
+		であるといえる。これらより、数列$\{^n a\}$は単調増加し、上に有界な数列となるので、単調収束定理から、数列$\{^n a\}$が収束する。よって、
+		\begin{equation*}
+			^\infty a = \lim_{n \to \infty} {^n a}
+		\end{equation*}
+		が存在する。
+	\end{proof}
+	
+	\begin{lemma}
+		数列$A = \{^n a\}$の奇数番目だけを取り出した数列を$B = {B_n}$、偶数番目だけを取り出した数列を$C = {C_n}$とする。
+		
+		$0 < a < 1$のとき、数列$B$および$C$は収束する。
+	\end{lemma}
+	\begin{proof}
+	
+		$B_n$と$C_n$の定義から、
+		\begin{align*}
+			B_n = {^{2n-1} a} \\
+			C_n = {^{2n} a}
+		\end{align*}
+		であり、累乗は二回適用したら大小関係を保つので、数列$B$および$C$はそれぞれ単調に変化することが分かる。ここで、$0 < z < 1$である$z$をおけば、$0 < a^z < 1$であるから、やはり帰納的に、
+		\begin{align*}
+			0 &<& {^n a} &< 1 \quad \text{すなわち} \\
+			0 &<& b_n    &< 1 \\
+			0 &<& c_n    &< 1
+		\end{align*}
+		
+		したがって、数列$B$および$C$は単調に変化し有界であるから、それぞれ収束する。
+	\end{proof}
+
+	\begin{theorem}
+	\label{th:tetration_implicit_function}
+		$x = B_{\infty}$および$x = C_{\infty}$は$f(a,x)=0$の陰関数である。
+	\end{theorem}
+	
+	\begin{lemma}
+		$0 < a < \frac{1}{e^e}$のとき、$\lim_{n \to \infty} B_n \neq \lim_{n \to \infty} C_n$
+	\end{lemma}
+	\begin{proof}
+	
+		$0 < z_1 < \frac{1}{e}$である定数$z_1$と、$\frac{1}{e} < z_2 < 1$である定数$z_2$をおく。
+		
+		$0 < a < \frac{1}{e^e} < 1$であるから、
+		\begin{align*}
+			a^\frac{1}{e} &< a^{z_1} &< a^0 \\
+						0 &< a^{z_2} &< \frac{1}{e^e}^{z_2}
+		\end{align*}
+		すなわち、
+		\begin{align*}
+			\frac{1}{e} &< a^{z_1} &< 1 \\
+					  0 &< a^{z_2} &< \frac{1}{e}
+		\end{align*}
+		もう一回同じ操作を用いると、
+		\begin{align*}
+					  0 &< a^{a^{z_1}} &< \frac{1}{e} \\
+			\frac{1}{e} &< a^{a^{z_2}} &< 1
+		\end{align*}
+		となる。$0 < B_1 = a < \frac{1}{e}$から、$\frac{1}{e} < C_1 < 1$が導かれ、したがって帰納的に、
+		\begin{align*}
+					  0 &< B_n &< \frac{1}{e} \\
+			\frac{1}{e} &< C_n &< 1
+		\end{align*}
+		といえる。
+		
+		したがって、$\lim_{n \to \infty} B_n = \lim_{n \to \infty} C_n$ならば、これらは$\frac{1}{e}$に収束することになるが、\thref{th:tetration_implicit_function}から、この範囲で$x = \frac{1}{e}$が$f(a,x) = 0$をみたすことは無いから、
+		結局$\lim_{n \to \infty} B_n \neq \lim_{n \to \infty} C_n$といえる。
 	\end{proof}
 	
 	
