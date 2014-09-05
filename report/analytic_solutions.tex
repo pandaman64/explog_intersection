@@ -52,98 +52,118 @@
 	\end{align*}
 	である。ここから、$a$についての関数$x = {^\infty a}$は、不動点解についての$f(a,x) = 0$の陰関数表示であることが分かる。テトレーションの導入によって、指数関数と対数関数の交点を底であらわすことができるようになった。
 	
-\subsection{$^\infty a$の収束}
-	それでは、高さ無限大のテトレーション$^\infty a$がどのような$a$について収束するかを調べよう。
+\subsection{$f(a,x)=0$の陰関数}
+	それでは、高さ無限大のテトレーション$^\infty a$について調べることで、$f(a,x)=0$の陰関数を見つけ出そう。
 	
-	ここで、$x = {^\infty a}$は$a = x^\frac{1}{x}$の逆関数であり、$a = x^\frac{1}{x}$の値域が$0 < a \leq e^\frac{1}{e}$であることから、この範囲で$^\infty a$は収束すると想定される。
-	この想定は、\thref{th:fixed_solutions}で示された結果とも良く対応しているように見える。
+	ここで、$x = {^\infty a}$は$a = x^\frac{1}{x}$の逆関数なので、${^\infty a}$が収束する範囲で関数は一致する。$a = x^\frac{1}{x}$の値域が$0 < a \leq e^\frac{1}{e}$であることから、${^\infty a}$が収束するのは少なくともこの範囲内である。
 	
-	しかし、実際には\thref{th:conjugate_solutions}で示されたように、共役解の影響が出てしまうので、この範囲全体では$^\infty a$は収束しないのだ。収束範囲について以下に示す。
+	まずは$a \geq 1$のとき、
 	\begin{theorem}
-	\label{th:tetration_convergence}
-		$^\infty a$は$\frac{1}{e^e} < a \leq e^\frac{1}{e}$のとき、存在する
-	\end{theorem}
-	
-	\begin{lemma}
 		$1 \leq a \leq e^\frac{1}{e}$のとき、$\lim_{n \to \infty} {^n a}$は収束する。
-	\end{lemma}
+	\end{theorem}
 	\begin{proof}
 	
 		$a \geq 1$より、$^{n+1} a = a ^{^n a} \geq {^n a}$であるから、数列$\{^n a\}$は、単調増加する。
-		また、$1 \leq z \leq e$である$z$をおくと、
+		また、$1 \leq {^n a} \leq e$と仮定すると、
 		\begin{align*}
-			1 \leq a^z &\leq (e^\frac{1}{e})^e \\
-					 &= e
+			1 \leq {^{n+1} a} &\leq (e^\frac{1}{e})^e \\
+							  &= e
 		\end{align*}
-		であるから、$1 \leq a \leq e^\frac{1}{e} < e$から、帰納的に、
+		であるから、帰納的に、
 		\begin{equation*}
 			1 \leq {^n a} \leq e
 		\end{equation*}
-		であるといえる。これらより、数列$\{^n a\}$は単調増加し、上に有界な数列となるので、単調収束定理から、数列$\{^n a\}$が収束する。よって、
-		\begin{equation*}
-			^\infty a = \lim_{n \to \infty} {^n a}
-		\end{equation*}
-		が存在する。
+		数列$\{^n a\}$は単調増加し、上に有界な数列となるので、単調収束定理から、数列$\{^n a\}$が収束する。
 	\end{proof}
 	
+	次は、$0 < a < 1$のときだ。
 	\begin{lemma}
-		数列$A = \{^n a\}$の奇数番目だけを取り出した数列を$B = {B_n}$、偶数番目だけを取り出した数列を$C = {C_n}$とする。
-		
-		$0 < a < 1$のとき、数列$B$および$C$は収束する。
+		$0 < a < $とする。
+		数列$\{^n a\}$の奇数番目と偶数番目を取り出した部分列$\{^{2n-1} a\},\{^{2n} a\}$はそれぞれ収束する。
 	\end{lemma}
 	\begin{proof}
 	
-		$B_n$と$C_n$の定義から、
+		累乗は二回適用しても大小関係を保つので、それぞれの数列は単調に変化する。$0 < {^n a} < 1$と仮定すれば、
 		\begin{align*}
-			B_n = {^{2n-1} a} \\
-			C_n = {^{2n} a}
-		\end{align*}
-		であり、累乗は二回適用したら大小関係を保つので、数列$B$および$C$はそれぞれ単調に変化することが分かる。ここで、$0 < z < 1$である$z$をおけば、$0 < a^z < 1$であるから、やはり帰納的に、
-		\begin{align*}
-			0 &<& {^n a} &< 1 \quad \text{すなわち} \\
-			0 &<& b_n    &< 1 \\
-			0 &<& c_n    &< 1
+			a^1<&{^{n+1} a}<a^0 \quad \text{より}\\
+			0<&{^{n+1} a}<1 \\
 		\end{align*}
 		
-		したがって、数列$B$および$C$は単調に変化し有界であるから、それぞれ収束する。
+		であるから、帰納的に$0 < {^n a} < 1$.
+		したがって、数列$\{^{2n-1} a\},\{^{2n} a\}$はそれぞれ単調に変化し有界であるから、収束する。
 	\end{proof}
 
+	\[
+		T(a) = \lim_{n \to \infty} {^n a},
+		T_e = \lim_{n \to \infty} {^{2n} a},
+		T_o = \lim_{n \to \infty} {^{2n - 1} a}
+	\]と定義する。
 	\begin{theorem}
 	\label{th:tetration_implicit_function}
-		$x = B_{\infty}$および$x = C_{\infty}$は$f(a,x)=0$の陰関数である。
+		$x = T_e(a)$および$x = T_o(a)$は$f(a,x)=0$の陰関数である。
 	\end{theorem}
 	
-	\begin{lemma}
-		$0 < a < \frac{1}{e^e}$のとき、$\lim_{n \to \infty} B_n \neq \lim_{n \to \infty} C_n$
-	\end{lemma}
+	\begin{theorem}
+		$0 < a < \frac{1}{e^e}$のとき、$\displaystyle \lim_{n \to \infty} {^n a}$は発散する
+	\end{theorem}
 	\begin{proof}
-	
-		$0 < z_1 < \frac{1}{e}$である定数$z_1$と、$\frac{1}{e} < z_2 < 1$である定数$z_2$をおく。
 		
-		$0 < a < \frac{1}{e^e} < 1$であるから、
+		関数$y = x^x$を考えると、$x^x \geq (\frac{1}{e})^{\frac{1}{e}}$だから、$1 > a^a > \frac{1}{e}$
+		また、$1 > {^{2n-1} a} > \frac{1}{e}$と仮定すれば、
 		\begin{align*}
-			a^\frac{1}{e} &< a^{z_1} &< a^0 \\
-						0 &< a^{z_2} &< \frac{1}{e^e}^{z_2}
+			0 < {^{2n} a} &< (\frac{1}{e^e})^{\frac{1}{e}} \\
+						  &= \frac{1}{e} \quad \text{同様にして、} \\
+			1 > {^{2n+1} a} &> \frac{1}{e}
 		\end{align*}
-		すなわち、
-		\begin{align*}
-			\frac{1}{e} &< a^{z_1} &< 1 \\
-					  0 &< a^{z_2} &< \frac{1}{e}
-		\end{align*}
-		もう一回同じ操作を用いると、
-		\begin{align*}
-					  0 &< a^{a^{z_1}} &< \frac{1}{e} \\
-			\frac{1}{e} &< a^{a^{z_2}} &< 1
-		\end{align*}
-		となる。$0 < B_1 = a < \frac{1}{e}$から、$\frac{1}{e} < C_1 < 1$が導かれ、したがって帰納的に、
-		\begin{align*}
-					  0 &< B_n &< \frac{1}{e} \\
-			\frac{1}{e} &< C_n &< 1
-		\end{align*}
-		といえる。
-		
-		したがって、$\lim_{n \to \infty} B_n = \lim_{n \to \infty} C_n$ならば、これらは$\frac{1}{e}$に収束することになるが、\thref{th:tetration_implicit_function}から、この範囲で$x = \frac{1}{e}$が$f(a,x) = 0$をみたすことは無いから、
-		結局$\lim_{n \to \infty} B_n \neq \lim_{n \to \infty} C_n$といえる。
+		したがって、帰納的に$1 > {^{2n-1} a} > \frac{1}{e}$であるから、
+		\begin{equation*}
+			\lim_{n \to \infty} {^{2n - 1} a} \geq \frac{1}{e}
+		\end{equation*}
+		ところで、$a = x^{\frac{1}{x}}$は、$0 < a < \frac{1}{e^e}$のとき、$0 < x < \frac{1}{e}$であるから、$\displaystyle \lim_{n \to \infty} {^n a}$が収束するならば、その部分列についても
+		\begin{equation*}
+			\lim_{n \to \infty} {^{2n - 1} a} < \frac{1}{e}
+		\end{equation*}
+		となる。これは矛盾するので、$\lim_{n \to \infty} {^n a}$は発散する。
 	\end{proof}
 	
+	\begin{theorem}
+		$f(a,x)=0$の陰関数は、次のいずれかの関数と等価である。
+		
+		\[
+		\left \{
+			\begin{array}{l}
+				a = x^{\frac{1}{e}} \\
+				x = T(a) \\
+				x = T_e(a) \\
+				x = T_o(a)
+			\end{array}
+		\right.
+		\]
+	\end{theorem}
+	\begin{proof}
+		$f(a,x)$の$a$を定数として見た関数$f_a(x)$を考えると、
+		\begin{align*}
+			f_a'(x) &= {a^{a^x}}{a^x}{\ln^2 a} - 1 \\
+			f_a''(x)&= {a^{a^x}}{a^x}{\ln^3 a}(a^x\ln a + 1)
+		\end{align*}
+		$a^x\ln a$は単調増加するから、
+		
+		\begin{itemize}
+			\item $0 < a < 1$のとき
+			
+				$f_a''(x)$は単調減少
+			\item $a > 1$のとき
+			
+				$f_a''(x) > 0$
+		\end{itemize}
+		したがって、$a^x\ln a + 1 = 0$のとき、$f_a'(x)$は極値
+		\begin{align*}
+			& \quad a^{-\frac{1}{\ln a}}(-1)(\ln a) - 1 \\
+			&=		-\frac{\ln a}{e} - 1
+		\end{align*}
+		をとる。
+		
+		これまでの結果より、$0 < a < 1$のとき、$f_a(x) \leq -\frac{\ln a}{e} - 1$
+		
+	\end{proof}
 	
