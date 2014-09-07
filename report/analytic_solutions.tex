@@ -5,7 +5,7 @@
 指数関数と対数関数のグラフにおいて、
 \begin{align*}
 	\loga x &= a^x \\
-⇔	a^{a^x}   &= x
+\iff a^{a^x}&= x
 \end{align*}
 だから、$f(a,x) = a^{a^x} - x$として、
 \begin{align*}
@@ -59,6 +59,7 @@
 	
 	まずは$a \geq 1$のとき、
 	\begin{theorem}
+	\label{th:tetration_convergence_a_greater_1}
 		$1 \leq a \leq e^\frac{1}{e}$のとき、$\lim_{n \to \infty} {^n a}$は収束する。
 	\end{theorem}
 	\begin{proof}
@@ -127,6 +128,7 @@
 	\end{proof}
 	
 	\begin{theorem}
+	\label{th:all_implicit_function}
 		$f(a,x)=0$の陰関数は、次のいずれかの関数と等価である。
 		
 		\[
@@ -156,14 +158,55 @@
 			
 				$f_a''(x) > 0$
 		\end{itemize}
-		したがって、$a^x\ln a + 1 = 0$のとき、$f_a'(x)$は極値
-		\begin{align*}
-			& \quad a^{-\frac{1}{\ln a}}(-1)(\ln a) - 1 \\
-			&=		-\frac{\ln a}{e} - 1
-		\end{align*}
-		をとる。
+		したがって、$a^x\ln a + 1 = 0$のとき、$f_a'(x)$は極値$-\frac{\ln a}{e} - 1$をとる。
 		
 		これまでの結果より、$0 < a < 1$のとき、$f_a(x) \leq -\frac{\ln a}{e} - 1$
+		さらに、
+		\[
+			 -\frac{\ln a}{e} - 1 > 0 
+			 \iff 0 < a < \frac{1}{e^e}
+		\]
+		であるから、$f_a'(x)$の停留点の個数は
+		\[
+			\begin{cases}
+				\text{2個} & (0 < a < \frac{1}{e^e}) \\
+				\text{0個} & (\frac{1}{e^e} < a < 1)
+			\end{cases}
+		\]
 		
+		$1 < a < \left ( \frac{1}{e} \right )^{\frac{1}{e}}$のときは、$f_a'(x)$は単調増加し、$f_a'(x)=0$となる点が存在するので、
+		$f_a(x)$の停留点の個数は1個
+		
+		まとめると、
+		\begin{table}
+		\begin{center}
+		\begin{tabular}{ccc}
+			a & 停留点 & 既に知られた解 \\
+			\hline
+			$0 < a < \frac{1}{e^e}$ & 2個 & $a = x^{\frac{1}{x}},x = T_o(a),x = T_e(a)$ \\
+			$\frac{1}{e^e} < a < 1$ & 0個 & $a = x^{\frac{1}{x}} \iff x = T(a)$ \\
+			$1 < a < \left ( \frac{1}{e} \right )^{\frac{1}{e}}$ & 1個 & $a = x^{\frac{1}{e}}$($x = T(a)$を含む)
+		\end{tabular}
+		\end{center}
+		\end{table}
+		
+		ここで、グラフの慨形から、
+		\[
+			\text{（$f_a(x)$の停留点の個数）} + 1 \geq \text{（$f_a(x)=0$の解の個数）}
+		\]
+		という関係式が成り立ち、全ての$a$において前に挙げた4つの関数が解の最大数分の陰関数となるので、他に$f(a,x)=0$の陰関数は存在しないと言える。したがって、\thref{th:all_implicit_function}が証明された。
 	\end{proof}
+	
+	この結果から、直ちに次の事実が導かれる。
+	\begin{theorem}
+	\label{th:tetration_convergence}
+		${^\infty a}$は$\frac{1}{e^e} < a < \left ( \frac{1}{e} \right )^{\frac{1}{e}}$で収束する。
+	\end{theorem}
+	\begin{proof}
+		\thref{th:all_implicit_function}より、$\frac{1}{e^e} < a < 1$で$f(a,x)=0$の陰関数は一つのみである。
+		したがって、$T_e(a) = T_o(a)$であり、${^\infty a}$は収束すると言える。
+		\thref{th:tetration_convergence_a_greater_1}と合わせて、上の命題が導かれる。
+	\end{proof}
+	
+	こうして、指数関数と対数関数の交点における底と交点の関係式が全て求められた。
 	
