@@ -21,6 +21,6 @@ set arrow 1 from 0,e to e1e,e nohead lt 0
 set arrow 2 from e1e,0 to e1e,e nohead lt 0
 
 set label 1 "e" at -0.005,e right
-set label 2 "(1/e)^(1/e)" at e1e,0.3 left
+set label 2 "e^(1/e)" at e1e,0.3 left
 
 plot single_root using 1:2 notitle lt 1 w l, two_roots using 1:2 notitle lt 1 w l, two_roots using 1:3 title "大不動点解" lt 1 lc rgb "dark-green" w l, three_roots using 1:2 title "小共役解" lt 1 lc rgb "green" w l, three_roots using 1:4 title "大共役解" lt 1 lc rgb "blue" w l, three_roots using 1:3 title "小不動点解" lt 1 w l

@@ -43,9 +43,9 @@
 	それでは、さっそくテトレーションを活用しよう。テトレーション$^n a$について、高さ$n$を無限に大きくしていくと、底$a$の値によっては$^n a$はある値に収束する。この収束値を高さ無限大のテトレーション$^\infty a$とあらわすこととする。
 	すなわち、
 	\begin{equation*}
-		^\infty a = \lim_{h \to \infty} {^h a}
+		^\infty a = \lim_{n \to \infty} {^n a}
 	\end{equation*}
-	とする。テトレーションの定義から、$^{h+1} a = a^{^h a}$であるから、
+	とする。テトレーションの定義から、$^{n+1} a = a^{^n a}$であるから、
 	\begin{align*}
 		a ^{^\infty a} &= {^\infty a} \quad \text{であり、$x = {^\infty a}$とすれば} \\
 		a^x &= x
@@ -67,7 +67,7 @@
 		$a \geq 1$より、$^{n+1} a = a ^{^n a} \geq {^n a}$であるから、数列$\{^n a\}$は、単調増加する。
 		また、$1 \leq {^n a} \leq e$と仮定すると、
 		\begin{align*}
-			1 \leq {^{n+1} a} &\leq (e^\frac{1}{e})^e \\
+			1 \leq {^{n+1} a} &\leq \left( e^\frac{1}{e} \right)^e \\
 							  &= e
 		\end{align*}
 		であるから、帰納的に、
@@ -79,12 +79,12 @@
 	
 	次に、$0 < a < 1$の場合を考える。このとき、底$a < 1$からテトレーションは増減を繰り返してしまうが、部分列に分けると見通しが良くなる。
 	\begin{lemma}
-		$0 < a < $とする。
+		$0 < a < 1$とする。
 		数列$\{^n a\}$の奇数番目と偶数番目を取り出した部分列$\{^{2n-1} a\},\{^{2n} a\}$はそれぞれ収束する。
 	\end{lemma}
 	\begin{proof}
 	
-		累乗は二回適用しても大小関係を保つので、それぞれの数列は単調に変化する。$0 < {^n a} < 1$と仮定すれば、
+		累乗は二度適用しても大小関係を保つので、それぞれの数列は単調に変化する。$0 < {^n a} < 1$と仮定すれば、
 		\begin{align*}
 			a^1<&{^{n+1} a}<a^0 \quad \text{より}\\
 			0<&{^{n+1} a}<1 \\
@@ -111,10 +111,10 @@
 	\end{theorem}
 	\begin{proof}
 		
-		関数$y = x^x$を考えると、$x^x \geq (\frac{1}{e})^{\frac{1}{e}}$であるので、$1 > a^a > \frac{1}{e}$
+		関数$y = x^x$を考えると、$x^x \geq \left( \frac{1}{e} \right)^{\frac{1}{e}}$であるので、$1 > a^a > \frac{1}{e}$である。
 		また、$1 > {^{2n-1} a} > \frac{1}{e}$と仮定すれば、
 		\begin{align*}
-			0 < {^{2n} a} &< (\frac{1}{e^e})^{\frac{1}{e}} \\
+			0 < {^{2n} a} &< \left( \frac{1}{e^e} \right)^{\frac{1}{e}} \\
 						  &= \frac{1}{e}
 		\end{align*}
 		であり、同様にして
@@ -209,10 +209,10 @@
 	\end{proof}
 	
 	この結果から、直ちに次の事実が導かれる。
-	\begin{theorem}
+	\begin{cor}
 	\label{th:tetration_convergence}
 		${^\infty a}$は$\frac{1}{e^e} < a < e^{\frac{1}{e}}$で収束する。
-	\end{theorem}
+	\end{cor}
 	\begin{proof}
 		\thref{th:all_implicit_function}より、$\frac{1}{e^e} < a < 1$で$f(a,x)=0$の陰関数は一つのみである。
 		したがって、$T_e(a) = T_o(a)$であり、${^\infty a}$は収束すると言える。
