@@ -1,18 +1,18 @@
 \section{解析解}
 
-	数値解析によって解の値は求められた。では、これらの値はいったいどのような数式であらわされるのだろうか？
+	数値解析によって解の値は求めることができた。では、これらの値はいったいどのような数式であらわされるのだろうか？
 
-	指数関数と対数関数のグラフにおいて、
+	指数関数と対数関数のグラフの交点において、下式が成り立つ。
 	\begin{align*}
 		\loga x &= a^x \\
 	\iff a^{a^x}&= x
 	\end{align*}
-	だから、$f(a,x) = a^{a^x} - x$として、$f(a,x) = 0$となるような$a$や$x$についての関数
+	したがって、$f(a,x) = a^{a^x} - x$として、$f(a,x) = 0$となるような$a$や$x$についての関数
 	\begin{align*}
 			 a &= g(x) \\
 			 x &= h(a) 
 	\end{align*}
-	を求めるということが目標となる。このような関数$a = g(x)$や$x = h(a)$は$f(a,x) = 0$の陰関数と呼ばれ、いくつか存在している。
+	を求めるということが目標となる。このような関数$a = g(x)$や$x = h(a)$は$f(a,x) = 0$の陰関数と呼ばれ、いくつか存在する。
 
 \subsection{不動点解}
 	まずは、不動点解について調べてみよう。指数関数の不動点$\xf$において、
@@ -32,32 +32,32 @@
 		a \times b &= \underbrace{a + a + \cdots + a}_b \\
 		a^b   &= \underbrace{a \times a \times \cdots \times a}_b
 	\end{align*}
-	というように、繰り返しの形で表わされる演算であると一般化できる。このような繰り返し演算はハイパー演算と呼ばれていて、テトレーションは累乗を拡張したハイパー演算だ。
+	というように、繰り返しの形で表わされる演算であると一般化できる。このような繰り返し演算はハイパー演算と呼ばれており、テトレーションは累乗を拡張したハイパー演算である。
 	したがって、テトレーションは、累乗の繰り返し演算
 	\begin{equation*}
 		^b a = \underbrace{a ^{a ^{\cdot ^{\cdot ^a}}}}_b
 	\end{equation*}
 	と定義され、ハイパー演算の内で4番目であることからテトレーション(\emph{tetra}tion)と呼ばれている。他にも超累乗(hyperpower)、累乗列(powertower)と呼ばれることもあるが、ここではテトレーションで呼び方を統一する。
-	また、テトレーション$^b a$の$a$をテトレーションの底と呼び、$b$を高さと呼んでいる。
+	また、テトレーション$^b a$の$a$をテトレーションの底と呼び、$b$を高さと呼ぶ。
 	
 	それでは、さっそくテトレーションを活用しよう。テトレーション$^n a$について、高さ$n$を無限に大きくしていくと、底$a$の値によっては$^n a$はある値に収束する。この収束値を高さ無限大のテトレーション$^\infty a$とあらわすこととする。
 	すなわち、
 	\begin{equation*}
 		^\infty a = \lim_{h \to \infty} {^h a}
 	\end{equation*}
-	とする。テトレーションの定義から、$^{h+1} a = a^{^h a}$なので、
+	とする。テトレーションの定義から、$^{h+1} a = a^{^h a}$であるから、
 	\begin{align*}
-		a ^{^\infty a} &= {^\infty a} \quad \text{であって、$x = {^\infty a}$とおけば} \\
+		a ^{^\infty a} &= {^\infty a} \quad \text{であり、$x = {^\infty a}$とすれば} \\
 		a^x &= x
 	\end{align*}
-	である。ここから、$a$についての関数$x = {^\infty a}$は、不動点解についての$f(a,x) = 0$の陰関数表示であることが分かる。テトレーションの導入によって、指数関数と対数関数の交点を底であらわすことができた。
+	となる。ここから、$a$についての関数$x = {^\infty a}$は、不動点解についての$f(a,x) = 0$の陰関数表示であることが分かる。テトレーションの導入によって、指数関数と対数関数の交点を底であらわすことができた。
 	
 \subsection{$f(a,x)=0$の陰関数}
 	それでは、高さ無限大のテトレーション$^\infty a$について調べることで、$f(a,x)=0$の陰関数を見つけ出そう。
 	
-	ここで、$x = {^\infty a}$は$a = x^\frac{1}{x}$の逆関数なので、${^\infty a}$が収束する範囲で関数は一致する。$a = x^\frac{1}{x}$の値域が$0 < a \leq e^\frac{1}{e}$であることから、${^\infty a}$が収束するのは少なくともこの範囲内である。
+	ここで、$x = {^\infty a}$は$a = x^\frac{1}{x}$の逆関数なので、${^\infty a}$が収束する範囲でこれらは一致する。$a = x^\frac{1}{x}$の値域が$0 < a \leq e^\frac{1}{e}$であることから、${^\infty a}$が収束するのは少なくともこの範囲内となる。
 	
-	まずは$a \geq 1$のときを考える。
+	まずは$a \geq 1$の場合を考える。
 	\begin{theorem}
 	\label{th:tetration_convergence_a_greater_1}
 		$1 \leq a \leq e^\frac{1}{e}$のとき、$\displaystyle \lim_{n \to \infty} {^n a}$は収束する。
@@ -77,7 +77,7 @@
 		数列$\{^n a\}$は単調増加し、上に有界な数列となるので、単調収束定理から、数列$\{^n a\}$が収束する。
 	\end{proof}
 	
-	次は、$0 < a < 1$のときだ。このとき、テトレーションは上下に変化を繰り返しているので、状況は複雑になってしまう。
+	次に、$0 < a < 1$の場合を考える。このとき、底$a < 1$からテトレーションは増減を繰り返してしまうが、部分列に分けると見通しが良くなる。
 	\begin{lemma}
 		$0 < a < $とする。
 		数列$\{^n a\}$の奇数番目と偶数番目を取り出した部分列$\{^{2n-1} a\},\{^{2n} a\}$はそれぞれ収束する。
@@ -89,47 +89,52 @@
 			a^1<&{^{n+1} a}<a^0 \quad \text{より}\\
 			0<&{^{n+1} a}<1 \\
 		\end{align*}
-		
-		であるから、帰納的に$0 < {^n a} < 1$.
-		したがって、数列$\{^{2n-1} a\},\{^{2n} a\}$はそれぞれ単調に変化し有界であるから、収束する。
+		であるから、帰納的に$0 < {^n a} < 1$といえる。
+		したがって、数列$\{^{2n-1} a\},\{^{2n} a\}$はそれぞれ単調に変化し有界であるから、単調収束定理より、収束する。
 	\end{proof}
 
+	便利のため、
 	\[
 		T(a) = \lim_{n \to \infty} {^n a},
-		T_e = \lim_{n \to \infty} {^{2n} a},
-		T_o = \lim_{n \to \infty} {^{2n - 1} a}
+		T_e(a) = \lim_{n \to \infty} {^{2n} a},
+		T_o(a) = \lim_{n \to \infty} {^{2n - 1} a}
 	\]と定義する。
 	これらを$f(a,x)$に適用すると、次の事が分かる。
 	\begin{theorem}
 	\label{th:tetration_implicit_function}
 		$x = T_e(a)$および$x = T_o(a)$は$f(a,x)=0$の陰関数である。
 	\end{theorem}
-	つまり、高さ無限大のテトレーションが収束しなくとも、これらの部分列の極限によって解が求められることが分かった。
+	つまり、高さ無限大のテトレーションが収束しなくとも、これら部分列の極限によって解が求められることが分かった。
 	
 	\begin{theorem}
 		$0 < a < \frac{1}{e^e}$のとき、$\displaystyle \lim_{n \to \infty} {^n a}$は発散する
 	\end{theorem}
 	\begin{proof}
 		
-		関数$y = x^x$を考えると、$x^x \geq (\frac{1}{e})^{\frac{1}{e}}$だから、$1 > a^a > \frac{1}{e}$
+		関数$y = x^x$を考えると、$x^x \geq (\frac{1}{e})^{\frac{1}{e}}$であるので、$1 > a^a > \frac{1}{e}$
 		また、$1 > {^{2n-1} a} > \frac{1}{e}$と仮定すれば、
 		\begin{align*}
 			0 < {^{2n} a} &< (\frac{1}{e^e})^{\frac{1}{e}} \\
-						  &= \frac{1}{e} \quad \text{同様にして、} \\
-			1 > {^{2n+1} a} &> \frac{1}{e}
+						  &= \frac{1}{e}
 		\end{align*}
-		したがって、帰納的に$1 > {^{2n-1} a} > \frac{1}{e}$であるから、
-		\begin{equation*}
+		であり、同様にして
+		\[
+			1 > {^{2n+1} a} > \frac{1}{e}
+		\]
+		といえる。
+		したがって、帰納的に$1 > {^{2n-1} a} > \frac{1}{e}$であるから、下式が成立する。
+		\begin{equation}
+		\label{eq:tetration_over}
 			\lim_{n \to \infty} {^{2n - 1} a} \geq \frac{1}{e}
-		\end{equation*}
+		\end{equation}
 		ところで、$a = x^{\frac{1}{x}}$は、$0 < a < \frac{1}{e^e}$のとき、$0 < x < \frac{1}{e}$であるから、$\displaystyle \lim_{n \to \infty} {^n a}$が収束するならば、その部分列についても
 		\begin{equation*}
 			\lim_{n \to \infty} {^{2n - 1} a} < \frac{1}{e}
 		\end{equation*}
-		となるはずだ。これは矛盾するので、結局$\displaystyle \lim_{n \to \infty} {^n a}$は発散する。
+		となるはずである。これは式\ref{eq:tetration_over}と矛盾するので、結局$\displaystyle \lim_{n \to \infty} {^n a}$は発散する。
 	\end{proof}
 	
-	ここまでで$f(a,x)=0$の陰関数を新たに見つけることが出来た。そしてこれらの関数以外には陰関数が存在しないことも以下のようにして証明が出来る。
+	ここまでの結果により$f(a,x)=0$の陰関数を見つけることが出来た。そして、これらの関数以外には陰関数が存在しないことも以下のようにして証明が出来る。
 	\begin{theorem}
 	\label{th:all_implicit_function}
 		$f(a,x)=0$の陰関数は、次のいずれかの関数と等価である。
@@ -137,7 +142,7 @@
 		\[
 		\left \{
 			\begin{array}{l}
-				a = x^{\frac{1}{e}} \\
+				a = x^{\frac{1}{x}} \\
 				x = T(a) \\
 				x = T_e(a) \\
 				x = T_o(a)
@@ -146,11 +151,13 @@
 		\]
 	\end{theorem}
 	\begin{proof}
+	
 		$f(a,x)$の$a$を定数として見た関数$f_a(x)$を考えると、
 		\begin{align*}
 			f_a'(x) &= {a^{a^x}}{a^x}{\ln^2 a} - 1 \\
 			f_a''(x)&= {a^{a^x}}{a^x}{\ln^3 a}(a^x\ln a + 1)
 		\end{align*}
+		
 		$a^x\ln a$は単調増加するから、
 		
 		\begin{itemize}
@@ -161,6 +168,7 @@
 			
 				$f_a''(x) > 0$
 		\end{itemize}
+		
 		したがって、$a^x\ln a + 1 = 0$のとき、$f_a'(x)$は極値$-\frac{\ln a}{e} - 1$をとる。
 		
 		これまでの結果より、$0 < a < 1$のとき、$f_a(x) \leq -\frac{\ln a}{e} - 1$
@@ -188,7 +196,7 @@
 			\hline
 			$0 < a < \frac{1}{e^e}$ & 2個 & $a = x^{\frac{1}{x}},x = T_o(a),x = T_e(a)$ \\
 			$\frac{1}{e^e} < a < 1$ & 0個 & $a = x^{\frac{1}{x}} \iff x = T(a)$ \\
-			$1 < a < \left ( \frac{1}{e} \right )^{\frac{1}{e}}$ & 1個 & $a = x^{\frac{1}{e}}$($x = T(a)$を含む)
+			$1 < a < e^{\frac{1}{e}}$ & 1個 & $a = x^{\frac{1}{e}}$($x = T(a)$を含む)
 		\end{tabular}
 		\end{center}
 		\end{table}
@@ -203,7 +211,7 @@
 	この結果から、直ちに次の事実が導かれる。
 	\begin{theorem}
 	\label{th:tetration_convergence}
-		${^\infty a}$は$\frac{1}{e^e} < a < \left ( \frac{1}{e} \right )^{\frac{1}{e}}$で収束する。
+		${^\infty a}$は$\frac{1}{e^e} < a < e^{\frac{1}{e}}$で収束する。
 	\end{theorem}
 	\begin{proof}
 		\thref{th:all_implicit_function}より、$\frac{1}{e^e} < a < 1$で$f(a,x)=0$の陰関数は一つのみである。
@@ -211,5 +219,5 @@
 		\thref{th:tetration_convergence_a_greater_1}と合わせて、上の命題が導かれる。
 	\end{proof}
 	
-	こうして、テトレーションを導入することによって、指数関数と対数関数の交点における底$a$と解$x$の関係式が全て求められた。
+	このように、テトレーションを導入することによって、指数関数と対数関数の交点における底$a$と解$x$の関係式を全て求めることが出来た。
 	
